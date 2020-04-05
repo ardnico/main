@@ -73,4 +73,3 @@ class loglotation:
         for i in logdir:
             with open('{0}\\{1}.log'.format(i),encoding='shift_jis',mode='a') as f:
                 f.write(text)
-        print(text)

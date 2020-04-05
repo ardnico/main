@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import sys
 import os
- import os.path
+import os.path
  
 sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)))
 
