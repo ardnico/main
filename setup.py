@@ -1,25 +1,23 @@
 #!/usr/bin/env python3
 
 from setuptools import setup
+import sys
+import os
+import os.path
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-import sys
-import os
-import os.path
- 
-sys.path.append(os.path.dirname(__file__))
-
 setup(
     name='useful',
     version='1.0.0',
+    author='Masaru Abe',
+    author_email='leaf.sun2@gmail.com',
     description='usuful method for python3',
     install_requires=["pandas", "chardet","selenium"],
     long_description='readme.md',
-    author='Masaru Abe',
-    author_email='leaf.sun2@gmail.com',
     url='https://qiita.com/mabe',
+    packages=setuptools.find_packages(),
     license='MIT license',
     classifiers=[
         "Programming Language :: Python :: 3",
