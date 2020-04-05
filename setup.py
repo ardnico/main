@@ -27,8 +27,5 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    entry_points = {
-        'console_scripts': ['read_data = useful.read_data:read_data']
-    },
     python_requires='>=3.5',
 )
