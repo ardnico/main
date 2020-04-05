@@ -9,7 +9,7 @@ import sys
 import os
 import os.path
  
-sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)))
+sys.path.insert(os.path.dirname(__file__))
 
 setup(
     name='useful',
