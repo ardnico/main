@@ -2,8 +2,6 @@
 
 import os
 import sys
-import pyotp
-import win32com.client
 import shutil
 from glob import glob
 from datetime import datetime as dt
