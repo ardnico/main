@@ -28,7 +28,7 @@ setup(
         "Operating System :: OS Independent",
     ],
     entry_points = {
-        'console_scripts': ['read_data = usesel.read_data:main',
+        'console_scripts': ['read_data = useful.read_data:main',
                             'UseSel = useful.UseSel:main',
                             'loglotate = useful.loglotate:main']
     },
