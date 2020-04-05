@@ -83,7 +83,7 @@ pandas,selenium,chardet
 
 ## Install
 
-pip install git+https://github.com/ardnico/main
+pip install git+https://github.com/ardnico/main -t lib
 
 ## Contribution
 
