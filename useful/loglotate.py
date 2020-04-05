@@ -9,35 +9,26 @@ import socket
 from sys import argv
 
 class loglotation:
-    def __init__(self,logname:str='logfile',outputdir:list=[os.getcwd()]):
+    def __init__(
+        self,
+        logname:str='logfile',
+        outputdir:list=[os.getcwd()],
+        firsttext:str = '[INFO]{0} started by {1}'.format(argv[0],socket.gethostname()),
+        lsize:int=100000,
+        num:int=20,
+        timestanp:int = 1    
+    ):
         self.logname=logname
         self.outputdir=outputdir
-        hostname = socket.gethostname()
         
-        text = '[INFO]{0} started by {1}'.format(hostname)
-        tdatetime = dt.now()
-        today_date = tdatetime.strftime('%Y/%m/%d %H:%M:%S')
-        text = '{0} {1}\n'.format(today_date,text)
-        for i in outputdir:
-            with open('{0}\\{1}.log'.format(i),encoding='shift_jis',mode='a') as f:
-                f.write(text)
-        print(text)
-
-
-
-    # loglotation
-    def loglotate(self,lname:str='',opd:list=[],lsize:int=100000,num:int=20):
         tdatetime = dt.now()
         todate = tdatetime.strftime('%Y%m%d%H%M%S')
         today_date = tdatetime.strftime('%Y/%m/%d %H:%M:%S')
-        if lname == '':
-            logname = self.logname
+        if timestanp == 1:
+            text = '{0} {1}\n'.format(today_date,firsttext)
         else:
-            logname = lname
-        if len(opd) == 0:
-            outputdir = self.outputdir
-        else:
-            outputdir = opd
+            test = firsttext
+
         for i in outputdir:
             try:
                 logsize = os.path.getsize("{0}\\{1}.log".format(i,logname))
@@ -47,7 +38,7 @@ class loglotation:
                 os.mkdir('{}\\old_log'.format(i))
             except:
                 pass
-            if logsize > lsize : #  lotate more than lsize log file 
+            if logsize > lsize : #  circulate log files
                 shutil.move("{0}\\{1}.log".format(i,logname),'{0}\\old_log\\{1}_{2}.log'.format(i,logname,todate))
             try:
                 oldlogfiles = glob('{0}\\old_log\\{1}*.log'.format(i,logname))
@@ -61,11 +52,21 @@ class loglotation:
                 except:
                     import traceback
                     traceback.print_exc()
+            with open('{0}\\{1}.log'.format(i),encoding='shift_jis',mode='a') as f:
+                f.write(text)
+        if text != "":
+            print(text)
 
     # Write into logfile
-    def write(self,text:str='',logdir:list=[]):
+    def write(
+        self,
+        text:str='',
+        logdir:list=[]
+    ):
         if len(logdir) == 0:
             logdir = self.outputdir
+        else:
+            self.outputdir = logdir
         tdatetime = dt.now()
         today_date = tdatetime.strftime('%Y/%m/%d %H:%M:%S')
         text = '{0} {1}\n'.format(today_date,text)

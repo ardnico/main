@@ -101,7 +101,7 @@ def log(
     return driver;
 
 def get_handle(
-    driver = '',  # driver
+    driver = '',
     num = -1  #  number of WindowHandle
 ):
     '''
@@ -121,8 +121,8 @@ def get_handle(
 
 def tryal(
     key = '',  #  Search keyword
+    driver = '',
     method = 'xpath',  #  search method
-    driver = '',  #  driver
     num = 3,  #  try count
     action = '', # action e.g( action='send_keys:text' →　send_keys(text) )
     keyword = '',
@@ -214,8 +214,8 @@ def tryal(
 
 def nw_tryal(
            key = '',
+           driver = '', 
            method = 'xpath',
-           driver = '',  #  driver
            num = 3
           ):
     '''
@@ -241,8 +241,8 @@ def nw_tryal(
                         raise Exception;
 
 def moveF(
-    driver = '',  #  driver
     iFname = '',  #  name of iFrame (e.g: iFname='a,b,c' )
+    driver = '',
     method = 'xpath'
 ):
     '''
