@@ -24,62 +24,62 @@ pandas,selenium,chardet
 
 ## Usage
 
-# read csv or excel data as dataframe
-dataframe = useful.read_data(filepath[,skiprows=0][,dtype='str'][,sep=','])
+    # read csv or excel data as dataframe
+    dataframe = useful.read_data(filepath[,skiprows=0][,dtype='str'][,sep=','])
 
-# declare a class and circulate logfiles
-useful.loglotation(logname:str='logfile',outputdir:list=[current_directory],
-                    [firsttext:str = '[INFO]<filename> started by <hostname>', ]
-                    [lsize:int=100000, ]
-                    [num:int=20, ]
-                    [timestanp:int = 1 # 1:on other:off] )
-# write into logfile 
-useful.loglotation().write(text:str='',[logdir:list=[]])
+    # declare a class and circulate logfiles
+    useful.loglotation(logname:str='logfile',outputdir:list=[current_directory],
+                        [firsttext:str = '[INFO]<filename> started by <hostname>', ]
+                        [lsize:int=100000, ]
+                        [num:int=20, ]
+                        [timestanp:int = 1 # 1:on other:off] )
+    # write into logfile 
+    useful.loglotation().write(text:str='',[logdir:list=[]])
 
-# class web driver(lounch web browser)
-driver = useful.log(browser='chrome',[width=700,][height=700,][**args])
-# catch specific window handles(Default : lateest)
-driver = useful.get_handle(
-                    driver = driver,
-                    [num = -1  #  number of WindowHandle ]
-                )
-# repeat to try to catch any web elements(and to action)
-webelement = useful.tryal(
-                    key = '',  #  Search keyword
-                    driver = driver,
-                    [method = 'xpath',  #  search method ]
-                    [num = 3,  #  try count ]
-                    [action = '', # action e.g( action='send_keys:text' →　send_keys(text) ) ]
-                    [keyword = '', ]
-                    [keyword2 = '', ]
-                    [keyword3 = '' ]
-                )
-# repeat to try to catch any web elements and change window handles 
-webelement = useful.nw_tryal(
-                    key = '',
-                    driver = driver,
-                    [method = 'xpath', ]
-                    [num = 3 ]
-                )
-# catch iframe web handle
-driver = useful.moveF(
-                    driver = driver,
-                    iFname = '',  #  name of iFrame (e.g: iFname='a,b,c' )
-                    [method = 'xpath' ]
-                )
-# get a screenshot
-useful.screenshot(
-                    driver = driver,
-                    [width = 640, ]
-                    [hight = 640, ]
-                    [name = 'SS',  #  name of screenshot ]
-                    [expa = '.png'  #  extention ]
-                )
-# get a html file
-useful.printhtml(
-                    driver = driver,
-                    [filename = 'print'  #  fille name ]
-                )
+    # class web driver(lounch web browser)
+    driver = useful.log(browser='chrome',[width=700,][height=700,][**args])
+    # catch specific window handles(Default : lateest)
+    driver = useful.get_handle(
+                        driver = driver,
+                        [num = -1  #  number of WindowHandle ]
+                    )
+    # repeat to try to catch any web elements(and to action)
+    webelement = useful.tryal(
+                        key = '',  #  Search keyword
+                        driver = driver,
+                        [method = 'xpath',  #  search method ]
+                        [num = 3,  #  try count ]
+                        [action = '', # action e.g( action='send_keys:text' →　send_keys(text) ) ]
+                        [keyword = '', ]
+                        [keyword2 = '', ]
+                        [keyword3 = '' ]
+                    )
+    # repeat to try to catch any web elements and change window handles 
+    webelement = useful.nw_tryal(
+                        key = '',
+                        driver = driver,
+                        [method = 'xpath', ]
+                        [num = 3 ]
+                    )
+    # catch iframe web handle
+    driver = useful.moveF(
+                        driver = driver,
+                        iFname = '',  #  name of iFrame (e.g: iFname='a,b,c' )
+                        [method = 'xpath' ]
+                    )
+    # get a screenshot
+    useful.screenshot(
+                        driver = driver,
+                        [width = 640, ]
+                        [hight = 640, ]
+                        [name = 'SS',  #  name of screenshot ]
+                        [expa = '.png'  #  extention ]
+                    )
+    # get a html file
+    useful.printhtml(
+                        driver = driver,
+                        [filename = 'print'  #  fille name ]
+                    )
 
 ## Install
 
