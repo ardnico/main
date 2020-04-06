@@ -18,6 +18,7 @@ class loglotate(object):
         num:int=20,
         timestanp:int = 1    
     ):
+        super().__init__()
         self.logname=logname
         self.outputdir=outputdir
         

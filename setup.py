@@ -30,8 +30,8 @@ setup(
         "console_scripts": [
             "read_data = aLittleuseful.read_data:read_data",
             "loglotate = aLittleuseful.loglotate:loglotate",
-            "UseSel = aLittleuseful.UseSel",
-            "ASE_files = aLittleuseful.ASE_files"
+            "UseSel = aLittleuseful.UseSel:UseSel",
+            "ASE_files = aLittleuseful.ASE_files:ASE_files"
         ]
     },
     python_requires='>=3.5',
