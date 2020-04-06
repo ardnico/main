@@ -26,27 +26,30 @@ pandas,selenium,chardet,Crypto
 
 ## Usage
 
+    from alittleuseful import read_data
     # read csv or excel data as dataframe
-    dataframe = alittleuseful.read_data(filepath[,skiprows=0][,dtype='str'][,sep=','])
+    dataframe = read_data(filepath[,skiprows=0][,dtype='str'][,sep=','])
 
+    from alittleuseful import loglotate
     # declare a class and circulate logfiles
-    alittleuseful.loglotation(logname:str='logfile',outputdir:list=[current_directory],
+    logger = loglotate(logname:str='logfile',outputdir:list=[current_directory],
                         [firsttext:str = '[INFO]<filename> started by <hostname>', ]
                         [lsize:int=100000, ]
                         [num:int=20, ]
                         [timestanp:int = 1 # 1:on other:off] )
     # write into logfile 
-    alittleuseful.loglotation().write(text:str='',[logdir:list=[]])
+    logger.write(text:str='',[logdir:list=[]])
 
+    from alittle import UseSel
     # class web driver(lounch web browser)
-    driver = alittleuseful.log(browser='chrome',[width=700,][height=700,][**args])
+    driver = UseSel.log(browser='chrome',[width=700,][height=700,][**args])
     # catch specific window handles(Default : lateest)
-    driver = alittleuseful.get_handle(
+    driver = UseSel.get_handle(
                         driver = driver,
                         [num = -1  #  number of WindowHandle ]
                     )
     # repeat to try to catch any web elements(and to action)
-    webelement = alittleuseful.tryal(
+    webelement = UseSel.tryal(
                         key = '',  #  Search keyword
                         driver = driver,
                         [method = 'xpath',  #  search method ]
@@ -57,20 +60,20 @@ pandas,selenium,chardet,Crypto
                         [keyword3 = '' ]
                     )
     # repeat to try to catch any web elements and change window handles 
-    webelement = alittleuseful.nw_tryal(
+    webelement = UseSel.nw_tryal(
                         key = '',
                         driver = driver,
                         [method = 'xpath', ]
                         [num = 3 ]
                     )
     # catch iframe web handle
-    driver = alittleuseful.moveF(
+    driver = UseSel.moveF(
                         driver = driver,
                         iFname = '',  #  name of iFrame (e.g: iFname='a,b,c' )
                         [method = 'xpath' ]
                     )
     # get a screenshot
-    alittleuseful.screenshot(
+    UseSel.screenshot(
                         driver = driver,
                         [width = 640, ]
                         [hight = 640, ]
@@ -78,19 +81,20 @@ pandas,selenium,chardet,Crypto
                         [expa = '.png'  #  extention ]
                     )
     # get a html file
-    alittleuseful.printhtml(
+    UseSel.printhtml(
                         driver = driver,
                         [filename = 'print'  #  fille name ]
                     )
 
+    from alittleuseful import ASE_files as ase
     # encrypt any keyword
-    alittleuseful.encryption(filename,keyword)
+    ase.encryption(filename,keyword)
 
     # decrypt encrypted files by this library
-    alittleuseful.decription(filename)
+    ase.decription(filename)
 
     # delete encrypted files by this library
-    alittleuseful.dell_enc_data(filename)
+    ase.dell_enc_data(filename)
 
 ## Install
 
