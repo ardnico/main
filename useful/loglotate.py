@@ -8,7 +8,7 @@ from datetime import datetime as dt
 import socket
 from sys import argv
 
-class loglotation:
+class loglotate(object):
     def __init__(
         self,
         logname:str='logfile',

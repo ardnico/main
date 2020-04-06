@@ -18,9 +18,11 @@ this library offer some useful methods for python3.
                 this method prepared a method that repeat to try to catch
                 any web elements.
 
+4. ASE_files :  This method can encrypt any keywords and decrypt keywords.
+
 ## Requirement
 
-pandas,selenium,chardet
+pandas,selenium,chardet,Crypto,getpass
 
 ## Usage
 
@@ -81,9 +83,18 @@ pandas,selenium,chardet
                         [filename = 'print'  #  fille name ]
                     )
 
+    # encrypt any keyword
+    useful.encryption(filename,keyword)
+
+    # decrypt encrypted files by this library
+    useful.decription(filename)
+
+    # delete encrypted files by this library
+    useful.dell_enc_data(filename)
+
 ## Install
 
-pip install git+https://github.com/ardnico/main -t lib
+pip install git+https://github.com/ardnico/main
 
 ## Contribution
 

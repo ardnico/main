@@ -14,10 +14,10 @@ setup(
     author='Masaru Abe',
     author_email='leaf.sun2@gmail.com',
     description='usuful method for python3',
-    install_requires=["pandas", "chardet","selenium"],
+    install_requires=["pandas", "chardet","selenium","Crypto","getpass"],
     long_description='readme.md',
     url='https://qiita.com/mabe',
-    packages=setuptools.find_packages(),
+    packages=setup.find_packages(),
     license='MIT license',
     classifiers=[
         "Programming Language :: Python :: 3",

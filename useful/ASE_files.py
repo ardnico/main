@@ -1,18 +1,4 @@
-# -*- coding: utf-8 -*-
-# ---
-# jupyter:
-#   jupytext:
-#     formats: ipynb,py:light
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.3.3
-#   kernelspec:
-#     display_name: Python 3
-#     language: python
-#     name: python3
-# ---
+#!/usr/bin/env python3
 
 import getpass
 import os
@@ -26,15 +12,11 @@ try:
     os.makedirs(filepath)
 except:
     pass
-read_me = '''
-　英字文字列の平文を暗号化ファイルに分割して保存します。
-　またファイル名をもとに暗号の復号化も行えます
-'''
 
 
 def encryption(filename,passcode):
     if len(glob('{0}\\{1}*'.format(filepath,filename))) > 0:
-        print('このファイル名は使用されています')
+        print('This filename already used')
         raise Exception
     passcode = str(passcode)
     pass_length = len(passcode)
@@ -65,7 +47,7 @@ def encryption(filename,passcode):
 def decription(filename):
     files = glob('{0}\\{1}[0-9][0-9][0-9].aes'.format(filepath,filename))
     if len(files) == 0:
-        print('該当ファイルがありません')
+        print('Such file is not found:{}'.format(filename))
         raise Exception
     decode_line = ''
     aes = AES.new(key, AES.MODE_CBC, iv)
@@ -83,10 +65,10 @@ def decription(filename):
 def dell_enc_data(filename):
     files = glob('{0}\\{1}[0-9][0-9][0-9].aes'.format(filepath,filename))
     if len(files) == 0:
-        print('該当ファイルがありません')
+        print('Such file is not found:{}'.format(filename))
         raise Exception
     for file in files:
         os.remove(file)
-    print('削除完了しました')
+    print('completed to delete')
 
 
