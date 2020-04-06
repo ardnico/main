@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from setuptools import setup
+import setuptools
 import sys
 import os
 import os.path
@@ -17,7 +18,7 @@ setup(
     install_requires=["pandas", "chardet","selenium","Crypto","getpass"],
     long_description='readme.md',
     url='https://qiita.com/mabe',
-    packages=setup.find_packages(),
+    packages=setuptools.find_packages(),
     license='MIT license',
     classifiers=[
         "Programming Language :: Python :: 3",
