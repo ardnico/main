@@ -4,19 +4,21 @@ import chardet
 import pandas as pd
 
 class read_data(object):
-    def __init__(self):
-        pass
+    def __init__(self,fpath):
+        self.fpath = fpath
 
-    def read_data(self,fpath,skiprows=0,dtype='str',sep=','):
+    def df(self,fpath='', **kwargs):
+        if fpath == '':
+            fpath = self.fpath
         with open(fpath, mode='rb') as f:
             encflag = f.read()
         encode = chardet.detect(encflag)['encoding']
         print('encode: {0}'.format(encode))
         if fpath[-3:].lower() == 'csv':
             try:
-                df = pd.read_csv(fpath,encoding='utf-8',dtype=dtype,skiprows=skiprows,sep=sep)
+                df = pd.read_csv(fpath,encoding='utf-8',*kwargs)
             except:
-                df = pd.read_csv(fpath,encoding=encode,dtype=dtype,skiprows=skiprows,sep=sep)
+                df = pd.read_csv(fpath,encoding=encode,*kwargs)
         else:
-            df = pd.read_excel(fpath,encoding=encode,dtype=dtype,skiprows=skiprows,sep=sep)
+            df = pd.read_excel(fpath,encoding=encode,*kwargs)
         return df
