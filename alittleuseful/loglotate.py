@@ -52,7 +52,7 @@ class loglotate(object):
                 except:
                     import traceback
                     traceback.print_exc()
-            with open('{0}\\{1}.log'.format(i),encoding='shift_jis',mode='a') as f:
+            with open('{0}\\{1}.log'.format(i,logname),encoding='shift_jis',mode='a') as f:
                 f.write(text)
         if text != "":
             print(text)
@@ -71,5 +71,5 @@ class loglotate(object):
         today_date = tdatetime.strftime('%Y/%m/%d %H:%M:%S')
         text = '{0} {1}\n'.format(today_date,text)
         for i in logdir:
-            with open('{0}\\{1}.log'.format(i),encoding='shift_jis',mode='a') as f:
+            with open('{0}\\{1}.log'.format(i,self.logname),encoding='shift_jis',mode='a') as f:
                 f.write(text)

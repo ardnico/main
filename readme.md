@@ -1,7 +1,7 @@
-useful
+alittleuseful
 ====
 
-this library offer some useful methods for python3.
+this library offer a little useful methods for python3.
 
 ## Description
 
@@ -22,31 +22,31 @@ this library offer some useful methods for python3.
 
 ## Requirement
 
-pandas,selenium,chardet,Crypto,getpass
+pandas,selenium,chardet,Crypto
 
 ## Usage
 
     # read csv or excel data as dataframe
-    dataframe = useful.read_data(filepath[,skiprows=0][,dtype='str'][,sep=','])
+    dataframe = alittleuseful.read_data(filepath[,skiprows=0][,dtype='str'][,sep=','])
 
     # declare a class and circulate logfiles
-    useful.loglotation(logname:str='logfile',outputdir:list=[current_directory],
+    alittleuseful.loglotation(logname:str='logfile',outputdir:list=[current_directory],
                         [firsttext:str = '[INFO]<filename> started by <hostname>', ]
                         [lsize:int=100000, ]
                         [num:int=20, ]
                         [timestanp:int = 1 # 1:on other:off] )
     # write into logfile 
-    useful.loglotation().write(text:str='',[logdir:list=[]])
+    alittleuseful.loglotation().write(text:str='',[logdir:list=[]])
 
     # class web driver(lounch web browser)
-    driver = useful.log(browser='chrome',[width=700,][height=700,][**args])
+    driver = alittleuseful.log(browser='chrome',[width=700,][height=700,][**args])
     # catch specific window handles(Default : lateest)
-    driver = useful.get_handle(
+    driver = alittleuseful.get_handle(
                         driver = driver,
                         [num = -1  #  number of WindowHandle ]
                     )
     # repeat to try to catch any web elements(and to action)
-    webelement = useful.tryal(
+    webelement = alittleuseful.tryal(
                         key = '',  #  Search keyword
                         driver = driver,
                         [method = 'xpath',  #  search method ]
@@ -57,20 +57,20 @@ pandas,selenium,chardet,Crypto,getpass
                         [keyword3 = '' ]
                     )
     # repeat to try to catch any web elements and change window handles 
-    webelement = useful.nw_tryal(
+    webelement = alittleuseful.nw_tryal(
                         key = '',
                         driver = driver,
                         [method = 'xpath', ]
                         [num = 3 ]
                     )
     # catch iframe web handle
-    driver = useful.moveF(
+    driver = alittleuseful.moveF(
                         driver = driver,
                         iFname = '',  #  name of iFrame (e.g: iFname='a,b,c' )
                         [method = 'xpath' ]
                     )
     # get a screenshot
-    useful.screenshot(
+    alittleuseful.screenshot(
                         driver = driver,
                         [width = 640, ]
                         [hight = 640, ]
@@ -78,19 +78,19 @@ pandas,selenium,chardet,Crypto,getpass
                         [expa = '.png'  #  extention ]
                     )
     # get a html file
-    useful.printhtml(
+    alittleuseful.printhtml(
                         driver = driver,
                         [filename = 'print'  #  fille name ]
                     )
 
     # encrypt any keyword
-    useful.encryption(filename,keyword)
+    alittleuseful.encryption(filename,keyword)
 
     # decrypt encrypted files by this library
-    useful.decription(filename)
+    alittleuseful.decription(filename)
 
     # delete encrypted files by this library
-    useful.dell_enc_data(filename)
+    alittleuseful.dell_enc_data(filename)
 
 ## Install
 
@@ -106,7 +106,7 @@ pip install git+https://github.com/ardnico/main
 
 ## Licence
 
-Useful
+ALittleUseful
 
 Copyright (c) 2020/04 Ardnico
 
