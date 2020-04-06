@@ -15,7 +15,7 @@ except:
 
 class ASE_files(object):
     def __init__(self):
-        super().__init__()
+        pass
 
     def encryption(self,filename,passcode):
         if len(glob('{0}\\{1}*'.format(filepath,filename))) > 0:

@@ -5,7 +5,7 @@ import pandas as pd
 
 class read_data(object):
     def __init__(self):
-        super().__init__()
+        pass
 
     def read_data(self,fpath,skiprows=0,dtype='str',sep=','):
         with open(fpath, mode='rb') as f:

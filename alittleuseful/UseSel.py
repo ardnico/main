@@ -17,7 +17,6 @@ download_directory= '{0}\\{1}'.format(os.getcwd(),todate)
 
 class UseSel(object):
     def __init__(self):
-        super().__init__()
         try:
             os.mkdir(download_directory)
         except:
