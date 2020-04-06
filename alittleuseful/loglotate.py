@@ -8,12 +8,14 @@ from datetime import datetime as dt
 import socket
 from sys import argv
 
+pyfilename = argv[0].replace(os.getcwd(),'').replace('.py','').replace('\\','')
+
 class loglotate(object):
     def __init__(
         self,
-        logname:str='logfile',
+        logname:str=pyfilename,
         outputdir:list=[os.getcwd()],
-        firsttext:str = '[INFO]{0} started by {1}'.format(argv[0],socket.gethostname()),
+        firsttext:str = '[INFO]{0} started by {1}'.format(pyfilename,socket.gethostname()),
         lsize:int=100000,
         num:int=20,
         timestanp:int = 1    
