@@ -18,11 +18,12 @@ class loglotate(object):
         firsttext:str = '[INFO]{0} started by {1}'.format(pyfilename,socket.gethostname()),
         lsize:int=100000,
         num:int=20,
-        timestanp:int = 1    
+        timestanp:int = 1,
+        encode = "shift_jis"
     ):
         self.logname=logname
         self.outputdir=outputdir
-        
+        self.encode = encode
         tdatetime = dt.now()
         todate = tdatetime.strftime('%Y%m%d%H%M%S')
         today_date = tdatetime.strftime('%Y/%m/%d %H:%M:%S')
@@ -54,7 +55,7 @@ class loglotate(object):
                 except:
                     import traceback
                     traceback.print_exc()
-            with open('{0}\\{1}.log'.format(i,logname),encoding='shift_jis',mode='a') as f:
+            with open('{0}\\{1}.log'.format(i,logname),encoding=self.encode,mode='a') as f:
                 f.write(text)
         if text != "":
             print(text)
@@ -73,5 +74,5 @@ class loglotate(object):
         today_date = tdatetime.strftime('%Y/%m/%d %H:%M:%S')
         text = '{0} {1}\n'.format(today_date,text)
         for i in logdir:
-            with open('{0}\\{1}.log'.format(i,self.logname),encoding='shift_jis',mode='a') as f:
+            with open('{0}\\{1}.log'.format(i,self.logname),encoding=self.encode,mode='a') as f:
                 f.write(text)
