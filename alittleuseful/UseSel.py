@@ -99,7 +99,7 @@ class UseSel(object):
         except:
             print('[ERROR] Check webdriver')
             raise Exception
-        if browser != "headlesschrome":            
+        if browser != "headlesschrome":
             driver.set_window_position(0,0)
             driver.set_window_size(width,height)
         return driver;
@@ -214,7 +214,6 @@ class UseSel(object):
                 time.sleep(2)
                 errornum += 1
                 if errornum > num:
-                    print('[INFO] FAILED TO GET WEB ELEMENT OR PERFORM ACTION')
                     raise Exception
         return reitem;
 
