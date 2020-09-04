@@ -2,12 +2,11 @@
 
 import getpass
 import os
-import Crypto.Cipher.AES as AES
+from cryptography.fernet import Fernet
 from glob import glob
-key = b'0123456789abcdef'
-iv = b'0' * 16
-basecode = '****************'
-filepath = '{0}\\data\\enc'.format(os.getcwd())
+key =b'FtnAwI-FffemOcnifdEnraenu_dOGFxFfkcoTSftiER='
+filepath = f'{os.getcwd()}\\data\\enc'
+
 try:
     os.makedirs(filepath)
 except:
@@ -18,7 +17,7 @@ class ASE_files(object):
         pass
 
     def encryption(self,filename,passcode):
-        if len(glob('{0}\\{1}*'.format(filepath,filename))) > 0:
+        if len(glob(f'{filepath}\\{filename}*')) > 0:
             print('This filename already used')
             raise Exception
         passcode = str(passcode)
@@ -34,41 +33,36 @@ class ASE_files(object):
                     enctarget += '*'
             encarry.append(enctarget)
             i += 1
-        aes = AES.new(key, AES.MODE_CBC, iv)
+        f = Fernet(key)
         for ij in range(len(encarry)):
-            cipher = aes.encrypt(encarry[ij].encode('ascii'))
+            cipher = f.encrypt(encarry[ij].encode('ascii'))
             number = format(ij, '0>3')
-            with open('{0}\\{1}{2}.aes'.format(filepath,filename,number), mode="wb") as fout:
+            with open(f'{filepath}\\{filename}{number}.aes', mode="wb") as fout:
                 bary = bytearray(cipher)
-                bary.append(0)
-                bary.extend([1, 127])
                 fout.write(bary)
         print('Completed Encryption')
         return 
 
 
     def decription(self,filename):
-        files = glob('{0}\\{1}[0-9][0-9][0-9].aes'.format(filepath,filename))
+        files = glob(f'{filepath}\\{filename}[0-9][0-9][0-9].aes')
         if len(files) == 0:
-            print('Such file is not found:{}'.format(filename))
+            print(f'Such file is not found:{filename}')
             raise Exception
         decode_line = ''
-        aes = AES.new(key, AES.MODE_CBC, iv)
+        f = Fernet(key)
         for file in files:
             bdata = open(file, "rb").read()
-            bdata2 = bytearray(bdata)
-            for three in range(3):
-                bdata2.pop()
-            decode_text = aes.decrypt(bdata2).decode('ascii')
+            decode_text = f.decrypt(bdata).decode('ascii')
             decode_text = decode_text.replace('*','')
             decode_line += decode_text
         return decode_line
 
 
     def dell_enc_data(self,filename):
-        files = glob('{0}\\{1}[0-9][0-9][0-9].aes'.format(filepath,filename))
+        files = glob(f'{filepath}\\{filename}[0-9][0-9][0-9].aes')
         if len(files) == 0:
-            print('Such file is not found:{}'.format(filename))
+            print(f'Such file is not found:{filename}')
             raise Exception
         for file in files:
             os.remove(file)

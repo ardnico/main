@@ -16,7 +16,7 @@ setup(
     author='Masaru Abe',
     author_email='leaf.sun2@gmail.com',
     description='usuful method for python3',
-    install_requires=["pandas", "chardet","selenium","Crypto"],
+    install_requires=["pandas", "chardet","selenium"],
     long_description=long_description,
     url='https://qiita.com/mabe',
     packages=setuptools.find_packages(),
