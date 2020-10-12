@@ -40,7 +40,7 @@ pandas,selenium,chardet,Crypto
     # write into logfile 
     logger.write(text:str='',[logdir:list=[]])
 
-    from alittle import UseSel
+    from alittleuseful import UseSel
     usesel = UseSel()
     # class web driver(lounch web browser)
     driver = usesel.log(browser='chrome',[width=700,][height=700,][**args])
