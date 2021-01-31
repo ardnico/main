@@ -100,7 +100,7 @@ pandas,selenium,chardet,Crypto
 
 ## Install
 
-pip install git+https://github.com/ardnico/main
+pip install git+https://github.com/ardnico/main/alittleuseful
 
 ## Contribution
 

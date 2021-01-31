@@ -11,14 +11,14 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name='alittleuseful',
+    name='py_surveillance',
     version='1.0.0',
     author='Masaru Abe',
     author_email='leaf.sun2@gmail.com',
-    description='usuful method for python3',
-    install_requires=["pandas", "chardet","selenium"],
+    description='this package was made for colleting any performance data for the surveillance.I wish this class will user at the target machines.',
+    install_requires=["psutil"],
     long_description=long_description,
-    url='https://qiita.com/mabe',
+    url='https://github.com/ardnico',
     packages=setuptools.find_packages(),
     license='MIT license',
     classifiers=[
@@ -28,10 +28,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "read_data = alittleuseful.read_data:read_data",
-            "loglotate = alittleuseful.loglotate:loglotate",
-            "UseSel = alittleuseful.UseSel:UseSel",
-            "ASE_files = alittleuseful.ASE_files:ASE_files"
+            ""
         ]
     },
     python_requires='>=3.5',
