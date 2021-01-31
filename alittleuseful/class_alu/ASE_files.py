@@ -4,20 +4,22 @@ import getpass
 import os
 from cryptography.fernet import Fernet
 from glob import glob
-key =b'FtnAwI-FffemOcnifdEnraenu_dOGFxFfkcoTSftiER='
-filepath = f'{os.getcwd()}\\data\\enc'
-
-try:
-    os.makedirs(filepath)
-except:
-    pass
-
+default_key =b'FtnAwI-FffemOcnifdEnraenu_dOGFxFfkcoTSftiER='
+default_dir = fr'{os.getcwd()}\data\enc'
 class ASE_files(object):
-    def __init__(self):
-        pass
+    def __init__(
+        self,
+        encfile=default_dir,
+        key=default_key
+        ):
+        self.encfile = encfile
 
     def encryption(self,filename,passcode):
-        if len(glob(f'{filepath}\\{filename}*')) > 0:
+        try:
+            os.makedirs(self.encfile)
+        except:
+            pass
+        if len(glob(fr'{filepath}\{filename}*')) > 0:
             print('This filename already used')
             raise Exception
         passcode = str(passcode)

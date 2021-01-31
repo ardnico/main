@@ -292,26 +292,22 @@ class UseSel(object):
         except:
             pass
         try:
-            files = glob.glob('{0}\\{1}\\{2}_*{3}'.format(os.getcwd(),todate,name,expa))
+            files = glob.glob(fr'{os.getcwd()}\{todate}\{name}_*.{expa}'))
             if len(files)==0:
-                files = ['-1']
-            try:
-                file = files[-1].replace(name,'')
-            except:
-                file = files[0].replace(name,'')
-            file = file.replace('_','')
-            file = file.replace(expa,'')
-            ssnum = str(int(file) + 1)
-            if len(ssnum)==1:
-                ssnum = '00' + ssnum
-            elif len(ssnum)==2:
-                ssnum = '0' + ssnum
+                ssnum ="000"
+            else:
+                latest_num = files[-1].replace(fr"{os.getcwd()}\{todate}\{name}",'').replacer(f".{expa}")
+                latest_num = int(latestnum)
+                if latest_num == 1000:
+                    print("スクリーンショットの取得上限になりました。")
+                    raise Exception
+                ssnum = str(latestnum + 1).zfill(3)
         except:
             import traceback
             traceback.print_exc()
             ssnum = '000'
-        print(ssnum)
-        Filename = '{0}\\{1}\\{2}'.format(os.getcwd(),todate,'{1}_{0}{2}'.format(str(ssnum),name,expa))
+        print("Screenshot number:",ssnum)
+        Filename = fr'{os.getcwd()}\{todate}\{name}_{ssnum}.{expa}'
         driver.set_window_size(width , hight)
         driver.save_screenshot(Filename)
         return;
