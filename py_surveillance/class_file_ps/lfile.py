@@ -2,16 +2,16 @@
 import os
 import psutil
 from glob import glob
-from py_surveillance.class_file_ps.wlog import *
+from py_surveillance.class_file_ps.wlog import * as pslw
 
-default_set_locale = fr"{os.getcwd()}\lotate_setting.txt"
 default_set_data = """[]
 
 """
 
 class lotate_files():
-    def __init__(self,log_locale=""):
-        self.log_locale = log_locale
+    lotatelog = pslw.log_writer()
+    def __init__(self,log_locale:str="",gen:int="",vol:int="",name=""):
+        lotatelog.set_log_place(log_locale=log_locale,gen=gen,vol=vol,name=name)
     
     def set_para(self,set_locale=default_set_locale):
         try:
